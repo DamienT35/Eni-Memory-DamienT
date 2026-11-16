@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+      <legend> Connectez-vous :</legend>
+      <form action="" method="post">
+           <label for="email"> Entrer votre email : </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="john.doe@mail.com"
+          title="Saisissez votre adresse email"/>
+          <br/>
+          <br/>
+          <label for="motdePasse">Mot de passe :</label>
+        <input
+          type="password"
+          id="motdePasse"
+          name="motdePasse"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          title="Saisissez votre mot de passe de minimum 8 caractères comportant
+          des lettres minuscules et majuscules et des chiffres">
+         <br>/
+    
+        <input type="reset" />
+        <input type="submit" />
+      </form>
+      <p>* champ obligatoire</p>
+
+    
+</body>
+</html>
