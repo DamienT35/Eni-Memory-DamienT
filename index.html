@@ -1,89 +1,81 @@
 <!doctype html>
 <html lang="fr">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jeu de memory</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Accueil</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX"
       crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="style.css" />
+    >
+    <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
   </head>
   <body>
-    <header>
-      <h1 class="container text-center">ENI-Memory-Acceuil</h1>
-      <nav class="navbar navbar-expand-lg bg-dark navbar-dark rounded-4">
-        <div class="container-fluid">
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="Acceuil.html">Acceuil</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Inscription.html">S'inscrire</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Connection.html">Se connecter</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Profil.html">Profil</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Jouer.html">Jouer</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+    <header class="container mt-3">
+      <h1 class="text-center mb-3">ENI - Memory - Accueil</h1>
+      <nav class="navbar navbar-expand bg-dark navbar-dark rounded-4 px-3 justify-content-evenly">
+        <ul class="navbar-nav w-100 justify-content-around">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Inscription.html">S'inscrire</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Connexion.html">Connexion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Profil.html">Profil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Jouer.html">Jouer</a>
+          </li>
+        </ul>
       </nav>
     </header>
-    <main
-      class="bg-dark text-white p-4 m-4 rounded-3 d-flex flex-column min-vh-100 m"
-    >
-      <section>
+
+    <main class="bg-dark text-white p-3 p-lg-4 my-4 rounded-3">
+      <section class="container text-center">
         <h2>Memory Game</h2>
-
-        <h4>Bienvenu sur Memory game try harder</h4>
-
+        <p class="lead">Bienvenue sur Memory Game Try Harder.</p>
         <p>
-          Les règles sont simple.le Memory est un jeu d'association basé sur la
+          Les règles sont simples : le Memory est un jeu d'association basé sur la
           mémoire visuelle.
         </p>
-      </section>
-      <h3>Règles du Jeu</h3>
-      <br />
-      <ul>
-        <li>
-          Retournez deux cartes. Si le simages sont identiques , le jeu laisse
-          les cartes
-        </li>
-        <li>
-          Si les images sont différentes, les cartes se retournent face cachées
-          là ou elles étaient
-        </li>
-        <li>
-          La partie se termine lorsque toutes les cartes ont été assemblées par
-          paires
-        </li>
-      </ul>
 
-      <div class="d-flex justify-content-center">
-        <img
-          height="25%"
-          width="25%"
-          src="ressources/memory-legume/memory_detail.png"
-          alt="Image du jeu Memory"
-        />
-      </div>
-      <p>
-        Si vous voulez vous souvenir de votre score inscrivez-vous via le
-        formulaire.<br />
-        le jeu garde les 5 meilleurs scores.<br />
-        Si vous voulez relancer une partie cliquez sur la barre d'espace.
-      </p>
+        <h3 class="mt-4">Règles du jeu</h3>
+        <ul class="text-start d-inline-block">
+          <li>
+            Retournez deux cartes. Si les images sont identiques, le jeu laisse
+            les cartes visibles.
+          </li>
+          <li>
+            Si les images sont différentes, les cartes se retournent faces cachées
+            là où elles étaient.
+          </li>
+          <li>
+            La partie se termine lorsque toutes les cartes ont été assemblées par
+            paires.
+          </li>
+        </ul>
+
+        <div class="d-flex justify-content-center my-4">
+          <img
+            class="w-25 img-fluid"
+            src="ressources/memory-legume/memory_detail.png"
+            alt="Aperçu du plateau de jeu Memory"
+          >
+        </div>
+
+        <p>
+          Si vous voulez enregistrer votre score, inscrivez-vous via le formulaire.<br>
+          Le jeu conserve les 5 meilleurs scores.<br>
+          Pour relancer une partie, appuyez sur la barre d'espace.
+        </p>
+      </section>
     </main>
   </body>
 </html>

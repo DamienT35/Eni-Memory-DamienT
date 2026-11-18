@@ -1,89 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
-      <link
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX"
       crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="style.css" />
+    >
+    <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-</head>
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark bordern-end col-6 + col-6 ">
-        <div class="container-fluid">
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ">
-              
-              <li class="nav-item" border-primary>
-                <a class="nav-link" href="index.html">Acceuil</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Inscription.html">S'inscrire</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Connection.html">Se connecter</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Profil.html">Profil</a>
-              </li>
-              <li class="nav-item " >
-                <a class="nav-link" href="Jouer.html">Jouer</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+  </head>
+  <body>
+    <header class="container mt-3">
+      <h1 class="text-center mb-3">ENI - Memory - Inscription</h1>
+      <nav class="navbar navbar-expand bg-dark navbar-dark rounded-4 px-3">
+        <ul class="navbar-nav w-100 justify-content-around">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="Inscription.html">S'inscrire</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Connexion.html">Connexion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Profil.html">Profil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Jouer.html">Jouer</a>
+          </li>
+        </ul>
       </nav>
-<fieldset>
-      <legend> Inscription :</legend>
-      <form action="" method="post">
-        <label for="nom">Nom d'utilisateur* :</label>
-        <input
-          type="text"
-          id="Nom"
-          name="Nom" 
-          autofocus
-          required
-          placeholder="mikey"
-          pattern="[A-Za-Z]{2,}"
-          title="Saisissez votre nom (2 caractères min.)">
-        
-        <br />
-        <br />
-        <label for="email"> Entrer votre email : </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="john.doe@mail.com"
-          title="Saisissez votre adresse email"/>
-          <br/>
-          <br/>
-          <label for="motdePasse">Mot de passe :</label>
-        <input
-          type="password"
-          id="motdePasse"
-          name="motdePasse"
-          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-          title="Saisissez votre mot de passe de minimum 8 caractères comportant
-          des lettres minuscules et majuscules et des chiffres">
-          <br/>
-          <br/>
-            <label for="motdePasse2">Confirmer le mot de passe :</label>
-        <input
-          type="password"
-          id="motdePasse"
-          name="motdePasse">
-       
-    
-        <input type="submit" value="Créer un compte" />
-        <input type="submit"  value = "annuler"/>
-      </form>
-      <p>* champ obligatoire</p>
-    </fieldset>
-    
-</body>
+    </header>
+
+    <main class="col-11 col-md-9 col-lg-6 mx-auto bg-dark text-white p-3 p-lg-4 my-4 rounded-3">
+      <section class="text-center">
+        <form action="" method="post">
+          <fieldset>
+            <legend class="h2 mb-4">Inscription :</legend>
+
+            <div class="mb-3">
+              <label for="nom" class="form-label">Nom d'utilisateur* :</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nom"
+                name="nom"
+                autofocus
+                required
+                placeholder="mikey"
+                pattern="[A-Za-z]{2,}"
+                title="Saisissez votre nom (2 caractères min.)"
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Entrez votre email* :</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                required
+                placeholder="john.doe@mail.com"
+                title="Saisissez votre adresse email"
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="motdePasse" class="form-label">Mot de passe* :</label>
+              <input
+                type="password"
+                class="form-control"
+                id="motdePasse"
+                name="motdePasse"
+                required
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Minimum 8 caractères comportant des lettres minuscules, majuscules et des chiffres"
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="motdePasse2" class="form-label">Confirmez le mot de passe* :</label>
+              <input
+                type="password"
+                class="form-control"
+                id="motdePasse2"
+                name="motdePasse2"
+                required
+              >
+            </div>
+
+            <div class="d-flex justify-content-center gap-2 mt-4">
+              <button type="submit" class="btn btn-primary">Créer un compte</button>
+              <button type="reset" class="btn btn-secondary">Annuler</button>
+            </div>
+          </fieldset>
+        </form>
+
+        <p class="mt-3 small text-secondary">* Champ obligatoire</p>
+      </section>
+    </main>
+  </body>
 </html>
