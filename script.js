@@ -1,4 +1,5 @@
 //faire une fonction qui clique et affiche une image
+
 function init() {
   for (const caseJeu of document.querySelectorAll("td")) {
     caseJeu.addEventListener("click", (event) => {
@@ -8,7 +9,8 @@ function init() {
 }
 window.addEventListener("load", init);
 
-const IMAGES = {
+const point = { 1: "ressources/question.svg" };
+const legumes = {
   1: "ressources/memory-legume/1.svg",
   2: "ressources/memory-legume/2.svg",
   3: "ressources/memory-legume/3.svg",
@@ -16,3 +18,19 @@ const IMAGES = {
   5: "ressources/memory-legume/5.svg",
   6: "ressources/memory-legume/6.svg",
 };
+
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+const tableauConvertir = legumes.map(item =>({
+   item,
+    valeur : Number (item.valeur)
+    const TableauMelange(shuffle.tableauConvertir);
+
+}))
