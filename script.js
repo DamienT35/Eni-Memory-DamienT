@@ -19,7 +19,6 @@ const legumes = {
   6: "ressources/memory-legume/6.svg",
 };
 
-
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -28,9 +27,9 @@ function shuffle(array) {
   return array;
 }
 
-const tableauConvertir = legumes.map(item =>({
-   item,
-    valeur : Number (item.valeur)
-    const TableauMelange(shuffle.tableauConvertir);
+const tableauConvertir = legumes.map((item) => ({
+  ...item,
+  valeur: Number(item.valeur),
+}));
 
-}))
+const tableauMelange = shuffle.tableauConvertir;
