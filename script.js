@@ -7,10 +7,13 @@ function init() {
     });
   }
 }
+// Cette instruction attache une fonction nommée init à l'événement de chargement de la fenêtre, garantissant qu'elle s'exécute une fois que toute la page  est entièrement chargée.
 window.addEventListener("load", init);
 
-const point = { 1: "ressources/question.svg" };
-const legumes = {
+//déclaration de constante qui recupère les id  du tableaux
+const itemPoint = { 1: "ressources/question.svg" };
+const point = itemPoint;
+const itemLegumes = {
   1: "ressources/memory-legume/1.svg",
   2: "ressources/memory-legume/2.svg",
   3: "ressources/memory-legume/3.svg",
@@ -18,7 +21,9 @@ const legumes = {
   5: "ressources/memory-legume/5.svg",
   6: "ressources/memory-legume/6.svg",
 };
+const legumes = itemLegumes;
 
+// function shuffle: fonction qui melange des valeurs aléatoire
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -27,9 +32,12 @@ function shuffle(array) {
   return array;
 }
 
-const tableauConvertir = legumes.map((item) => ({
+//  constante convert: qui change une valeur string en int
+const convert = legumes.map((item) => ({
   ...item,
   valeur: Number(item.valeur),
 }));
+const tableauConvertir = convert;
 
+//
 const tableauMelange = shuffle.tableauConvertir;
