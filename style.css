@@ -17,3 +17,24 @@ main{
     max-width: 50%;
   }
 }
+
+table {
+  width: 80%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  background-color: white;
+  margin: 20px auto;
+}
+
+td {
+  border: 3px solid black;
+  padding: 10px;
+  text-align: center;
+}
+table img {
+  width: 100%;
+  height: auto;
+  max-width: 100px;
+  max-height: 100px;
+}
+
