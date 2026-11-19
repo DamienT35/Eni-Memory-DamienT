@@ -42,32 +42,59 @@ const tableauMelange = shuffle([...LegumeConvert, ...LegumeConvert]);
 
 function iniTableau() {
 
-// Procédé B : On crée notre propre compteur manuel pour remplacer le modulo
-  let indexLegume = 0;
 
-  // Procédé C : On parcourt chaque case du plateau
+  // On initialise un compteur 
+  let indexLegume = 0;
   for (let i = 0; i < cases.length; i++) {
     
-    // Étape 1 : On récupère la case actuelle
+    //  On récupère la case actuelle
     const casePlateau1 = cases[i];
 
-    // Étape 2 : On pioche le légume grâce à notre compteur manuel
-    const legumeRandom = tableauMelange[indexLegume];
-
-    // Étape 3 : On cible la balise <img> dans la case et on lui donne sa source
+    // On pioche le légume grâce à notre compteur manuel
+  
+    //  On cible la balise <img> dans la case et on lui donne sa source
     const baliseImg = casePlateau1.querySelector("img");
-    baliseImg.src = legumes[legumeRandom];
+    baliseImg.src = itemPoint[1]; // image poitn d'interrogation
 
-    // Étape 4 : On avance le compteur de 1 pour le prochain tour
-    indexLegume++;
-    // Étape 5 (Le remplacement du %) : 
-    // Si le compteur atteint la taille max du tableau, on le remet manuellement à 0
-    if (indexLegume === tableauMelange.length) {
-      indexLegume = 0;
-    }
-
-   
+  
   }
 }
 
 iniTableau();
+
+// initialisation de l'event listener sur chaque case du tableau pour afficher l'image du légume correspondant lorsqu'une case est cliquée. L'image affichée est déterminée par l'index de la case dans le tableau des cases et le tableau mélangé des légumes.
+function init() {
+  for (const caseJeu of document.querySelectorAll("td")) {
+    caseJeu.addEventListener("click", (event) => {
+      event.currentTarget.querySelector("img").src = legumes[tableauMelange[Array.from(cases).indexOf(event.currentTarget)]];
+    });
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+init();
+iniTableau();
+
+
+
+
