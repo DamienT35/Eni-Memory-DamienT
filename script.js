@@ -73,6 +73,27 @@ function init() {
 
 
 
+/* Déclaration d'un tableau pour stocker les images cliquées
+const imagesCliquees = [];
+
+//fonction handleClick: qui   gère le clic sur une case du tableau. Elle vérifie si la case est déjà retournée, et si ce n'est pas le cas, elle retourne l'image correspondante et l'ajoute au tableau des images cliquées.
+//function handleClick(event) {
+   
+
+   if (cases.classList.contains("retournée")) {
+     return;
+   }   
+
+
+//ajout d'un écouteur d'événement à chaque case du tableau pour gérer le clic et appeler la fonction handleClick.
+//cases.forEach((casePlateau) => {
+  casePlateau.addEventListener("click", handleClick);
+;
+// metttre l'image "ressources/question.svg"  pour toutes les cases du tableau au chargement de la page.
+window.addEventListener("load", () => { "ressources/question.svg" });
+
+
+
 
 
 
