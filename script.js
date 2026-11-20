@@ -1,4 +1,3 @@
-
 // Déclarer les variable : déclaration d'un objet legumes
 
 const legumes = {
@@ -13,11 +12,11 @@ const legumes = {
 //déclaration de l'objet itemPoint qui associe un identifiant à une ressource d'image.
 const itemPoint = { 1: "ressources/question.svg" };
 
-// constante pour recuper toutes les cases du tableau
+// constante pour recuperer toutes les cases du tableau
 
 const cases = document.querySelectorAll("td");
 
-// fonction shuffle: qui prend un tableau en entrée et le mélange de manière aléatoire 
+// fonction shuffle: qui prend un tableau et le mélange de manière aléatoire
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -31,32 +30,19 @@ const LegumeConvert = Object.keys(legumes).map(Number);
 // 2. On double les numéros pour avoir les 6 paires (12 cartes) et on mélange
 const tableauMelange = shuffle([...LegumeConvert, ...LegumeConvert]);
 
-
-
-
 //function iniTableau: qui initialise le plateau de jeu en parcourant chaque case du tableau.
 function iniTableau() {
-
-
-  
   for (let i = 0; i < cases.length; i++) {
     //  On récupère la case actuelle
     const casePlateau1 = cases[i];
 
-  
-  
     //  cible la balise <img> dans la case et on lui donne sa source
     const baliseImg = casePlateau1.querySelector("img");
     baliseImg.src = itemPoint[1]; // image poitn d'interrogation
   }
 }
 
-
 iniTableau();
-
-
-
-
 
 // function revelerImage: qui prend une case et un index en paramètre, et qui révèle l'image correspondante à la case cliquée.
 function revelerImage(uneCase, index) {
@@ -105,10 +91,10 @@ cases.forEach((uneCase, index) => {
         const Retournée = imageCase.getAttribute("src") !== itemPoint[1];
         const dejaValidee = cases[i].classList.contains("trouvee");
 
-//  Si la carte est retournée et pas encore validée, on ajoute ses points au total
+        //  Si la carte est retournée et pas encore validée, on ajoute ses points au total
         if (Retournée && !dejaValidee) {
           const numeroLegume = tableauMelange[i];
-         totalPoints = totalPoints + pointsParLegume[numeroLegume];;
+          totalPoints = totalPoints + pointsParLegume[numeroLegume];
           cartesEnCours.push(cases[i]);
         }
       }
@@ -119,8 +105,6 @@ cases.forEach((uneCase, index) => {
           cartesEnCours[i].classList.add("trouvee");
         }
         compteurClics = 0;
-
-      
       } else {
         verrouillage = true;
         setTimeout(() => {
@@ -136,35 +120,10 @@ cases.forEach((uneCase, index) => {
   });
 });
 
-
 // Ajout d'un écouteur d'événement pour la touche Espace afin de réinitialiser le plateau de jeu
-document.addEventListener('keydown', function(event) {
-  if (event.code === 'Space') {
+document.addEventListener("keydown", function (event) {
+  if (event.code === "Space") {
     // Réinitialiser le plateau de jeu refresh la page
     location.reload();
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
