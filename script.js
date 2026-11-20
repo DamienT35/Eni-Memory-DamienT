@@ -56,9 +56,9 @@ iniTableau();
 
 
 
-// 
 
 
+// function revelerImage: qui prend une case et un index en paramètre, et qui révèle l'image correspondante à la case cliquée.
 function revelerImage(uneCase, index) {
   const indexLegume = tableauMelange[index];
   uneCase.querySelector("img").src = legumes[indexLegume];
@@ -102,13 +102,13 @@ cases.forEach((uneCase, index) => {
       // Boucle pour vérifier les cartes actuellement retournées et calculer le total des points
       for (let i = 0; i < cases.length; i++) {
         const imageCase = cases[i].querySelector("img");
-        const estRetournée = imageCase.getAttribute("src") !== itemPoint[1];
-        const estDejaValidee = cases[i].classList.contains("trouvee");
+        const Retournée = imageCase.getAttribute("src") !== itemPoint[1];
+        const dejaValidee = cases[i].classList.contains("trouvee");
 
 //  Si la carte est retournée et pas encore validée, on ajoute ses points au total
-        if (estRetournée && !estDejaValidee) {
+        if (Retournée && !dejaValidee) {
           const numeroLegume = tableauMelange[i];
-          totalPoints += pointsParLegume[numeroLegume];
+         totalPoints = totalPoints + pointsParLegume[numeroLegume];;
           cartesEnCours.push(cases[i]);
         }
       }
