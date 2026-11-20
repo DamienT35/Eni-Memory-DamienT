@@ -1,7 +1,5 @@
-
-
-// initaliser le plateau de jeux 
-// Déclarer les variable : déclaration d'un objet legumes 
+// initaliser le plateau de jeux
+// Déclarer les variable : déclaration d'un objet legumes
 
 const legumes = {
   1: "ressources/memory-legume/1.svg",
@@ -18,7 +16,6 @@ const itemPoint = { 1: "ressources/question.svg" };
 // pour chaque case du tableau, on ajoute un écouteur d'événement qui déclenche la fonction handleClick lorsque la case est cliquée.
 
 const cases = document.querySelectorAll("td");
-
 
 // fonction shuffle: qui prend un tableau en entrée et le mélange de manière aléatoire en utilisant l'algorithme de Fisher-Yates. Elle retourne le tableau mélangé.
 function shuffle(array) {
@@ -43,7 +40,6 @@ function iniTableau() {
 
   
   for (let i = 0; i < cases.length; i++) {
-    
     //  On récupère la case actuelle
     const casePlateau1 = cases[i];
 
@@ -52,8 +48,6 @@ function iniTableau() {
     //  On cible la balise <img> dans la case et on lui donne sa source
     const baliseImg = casePlateau1.querySelector("img");
     baliseImg.src = itemPoint[1]; // image poitn d'interrogation
-
-  
   }
 }
 
