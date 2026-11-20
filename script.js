@@ -37,20 +37,17 @@ const tableauMelange = shuffle([...LegumeConvert, ...LegumeConvert]);
 
 
 
-// pour chaque case du tableau je vais lui assigner une image de legume aleatoire avec la fonction for et la methode querySelector pour selectionner l'image de chaque case et lui assigner une image de legume aleatoire à partir du tableau melange.
-// L'image est affichée en utilisant la source définie dans l'objet legumes.
-
+//function iniTableau: qui initialise le plateau de jeu en parcourant chaque case du tableau et en définissant l'image de chaque case sur une image de point d'interrogation. Cela prépare le plateau pour le jeu de mémoire.
 function iniTableau() {
 
 
-  // On initialise un compteur 
-  let indexLegume = 0;
+  
   for (let i = 0; i < cases.length; i++) {
     
     //  On récupère la case actuelle
     const casePlateau1 = cases[i];
 
-    // On pioche le légume grâce à notre compteur manuel
+  
   
     //  On cible la balise <img> dans la case et on lui donne sa source
     const baliseImg = casePlateau1.querySelector("img");
@@ -60,37 +57,94 @@ function iniTableau() {
   }
 }
 
+
 iniTableau();
+
+
 
 // initialisation de l'event listener sur chaque case du tableau pour afficher l'image du légume correspondant lorsqu'une case est cliquée. L'image affichée est déterminée par l'index de la case dans le tableau des cases et le tableau mélangé des légumes.
-function init() {
-  for (const caseJeu of document.querySelectorAll("td")) {
-    caseJeu.addEventListener("click", (event) => {
-      event.currentTarget.querySelector("img").src = legumes[tableauMelange[Array.from(cases).indexOf(event.currentTarget)]];
-    });
-  }
+// On parcourt chaque case en récupérant l'élément (uneCase) et sa position (index)
+
+
+
+function revelerImage(uneCase, index) {
+  const indexLegume = tableauMelange[index];
+  uneCase.querySelector("img").src = legumes[indexLegume];
 }
 
+const pointsParLegume = {
+  1: 1,
+  2: 10,
+  3: 100,
+  4: 1000,
+  5: 10000,
+  6: 100000,
+};
+
+const NB_CARTES_TOUR = 2; // La constante qui déclenche la vérification à 2 clics
+const sommesGagnantes = [2, 20, 200, 2000, 20000, 200000];
+let compteurClics = 0;
+let verrouillage = false;
+
+cases.forEach((uneCase, index) => {
+  uneCase.addEventListener("click", () => {
+    const img = uneCase.querySelector("img");
+
+    // Sécurités : on ignore si verrouillé, si déjà retournée ce tour-ci, ou si paire déjà validée
+    if (verrouillage || img.getAttribute("src") !== itemPoint[1]) {
+      return;
+    }
+
+    // 1. On retourne la carte cliquée et on incrémente le compteur
+    revelerImage(uneCase, index);
+    compteurClics++;
+
+    // 2. Dès que le compteur atteint la constante (2), on lance la vérification
+    if (compteurClics === NB_CARTES_TOUR) {
+      let totalPoints = 0;
+      const cartesEnCours = [];
+
+      // Boucle qui parcourt toutes les cases pour trouver les 2 cartes ouvertes de ce tour
+      for (let i = 0; i < cases.length; i++) {
+        const imageCase = cases[i].querySelector("img");
+        const estRetournée = imageCase.getAttribute("src") !== itemPoint[1];
+        const estDejaValidee = cases[i].classList.contains("trouvee");
+
+        if (estRetournée && !estDejaValidee) {
+          const numeroLegume = tableauMelange[i];
+          totalPoints += pointsParLegume[numeroLegume];
+          cartesEnCours.push(cases[i]);
+        }
+      }
+
+      // 3. On vérifie le total des points calculé par la boucle
+      if (sommesGagnantes.includes(totalPoints)) {
+        for (let i = 0; i < cartesEnCours.length; i++) {
+          cartesEnCours[i].classList.add("trouvee");
+        }
+        compteurClics = 0;
+      } else {
+        verrouillage = true;
+        setTimeout(() => {
+          for (let i = 0; i < cartesEnCours.length; i++) {
+            cartesEnCours[i].querySelector("img").src = itemPoint[1];
+          }
+          compteurClics = 0;
+          verrouillage = false;
+        }, 1000);
+      }
+    }
+  });
+});
+
+document.addEventListener('keydown', function(event) {
+  if (event.code === 'Space') {
+    // Réinitialiser le plateau de jeu refresh la page
+    location.reload();
+  }
+});
 
 
-/* Déclaration d'un tableau pour stocker les images cliquées
-const imagesCliquees = [];
-
-//fonction handleClick: qui   gère le clic sur une case du tableau. Elle vérifie si la case est déjà retournée, et si ce n'est pas le cas, elle retourne l'image correspondante et l'ajoute au tableau des images cliquées.
-//function handleClick(event) {
-   
-
-   if (cases.classList.contains("retournée")) {
-     return;
-   }   
-
-
-//ajout d'un écouteur d'événement à chaque case du tableau pour gérer le clic et appeler la fonction handleClick.
-//cases.forEach((casePlateau) => {
-  casePlateau.addEventListener("click", handleClick);
-;
-// metttre l'image "ressources/question.svg"  pour toutes les cases du tableau au chargement de la page.
-window.addEventListener("load", () => { "ressources/question.svg" });
 
 
 
@@ -109,12 +163,6 @@ window.addEventListener("load", () => { "ressources/question.svg" });
 
 
 
-
-
-
-
-init();
-iniTableau();
 
 
 
